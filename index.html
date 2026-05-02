@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    #loading {
+      text-align: center;
+    }
+
+    #loading img {
+      width: 120px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    #invite {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading">
+    <img src="loading.png" alt="Loading">
+  </div>
+
+  <img id="invite" src="final.png" alt="Invitation">
+
+  <script>
+    // Simulate loading delay (3 seconds)
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("invite").style.display = "block";
+    }, 3000);
+  </script>
+
+</body>
+</html>
