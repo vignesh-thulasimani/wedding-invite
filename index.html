@@ -47,10 +47,18 @@
 
   <script>
     // Simulate loading delay (3 seconds)
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    
+    const invite = document.getElementById("invite");
+    invite.style.display = "block";
+
+    // Small delay ensures smooth transition
     setTimeout(() => {
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("invite").style.display = "block";
-    }, 3000);
+      invite.style.opacity = "1";
+    }, 100);
+
+  }, 3000);
   </script>
 
 </body>
