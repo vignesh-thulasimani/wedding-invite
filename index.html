@@ -5,36 +5,41 @@
   <title>Wedding Invitation</title>
   <style>
     body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #ffffff;
-      font-family: Arial, sans-serif;
-    }
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
 
-    #loading {
-      text-align: center;
-    }
+/* Loading container stays centered */
+#loading {
+  position: absolute;
+  text-align: center;
+  transition: opacity 0.8s ease;
+}
 
-    #loading img {
-      width: 100vw;       /* 40% of screen width */
-      max-width: 250px;  /* don’t get too big on desktop */
-      animation: spin 4s linear infinite;
-    }
+#loading img {
+  width: 40vw;
+  max-width: 250px;
+  animation: spin 3s linear infinite;
+}
 
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
 
-    #invite {
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: opacity 2s ease-in-out;
-    }
+/* Invite image full screen */
+#invite {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  display: block; /* IMPORTANT: don’t keep it none */
+  transition: opacity 1.5s ease-in-out;
+}
   </style>
 </head>
 <body>
@@ -47,16 +52,19 @@
 
   <script>
     // Simulate loading delay (3 seconds)
-  setTimeout(() => {
-    document.getElementById("loading").style.display = "none";
-    
-    const invite = document.getElementById("invite");
-    invite.style.display = "block";
-
-    // Small delay ensures smooth transition
     setTimeout(() => {
+    const loading = document.getElementById("loading");
+    const invite = document.getElementById("invite");
+
+    // Fade out loading
+    loading.style.opacity = "0";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+
+      // Fade in invite
       invite.style.opacity = "1";
-    }, 100);
+    }, 800);
 
   }, 3000);
   </script>
