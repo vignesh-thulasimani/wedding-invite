@@ -21,8 +21,9 @@
 }
 
 #loading img {
-  width: 40vw;
-  max-width: 250px;
+  width: 60vw;       /* bigger on mobile */
+  max-width: 320px;  /* limit for large screens */
+  min-width: 180px;  /* ensures it’s not too small */
   animation: spin 3s linear infinite;
 }
 
