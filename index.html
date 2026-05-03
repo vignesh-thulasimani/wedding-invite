@@ -21,10 +21,11 @@
 }
 
 #loading img {
-  width: 80vw;       /* bigger on mobile */
-  max-width: none;   /* 🔥 remove restriction */
-  min-width: 0;
+  opacity: 0;
+  width: 90vw;
+  max-width: none;
   animation: spin 3s linear infinite;
+  transition: opacity 0.5s ease;
 }
 
 @keyframes spin {
@@ -56,6 +57,18 @@
   <img id="invite" src="final.png" alt="Invitation">
 
 <script>
+  const loadingImg = document.querySelector("#loading img");
+
+  // Wait until image fully loads
+  loadingImg.onload = () => {
+    loadingImg.style.opacity = "1";
+  };
+
+  // Fallback (in case already cached)
+  if (loadingImg.complete) {
+    loadingImg.style.opacity = "1";
+  }
+
   setTimeout(() => {
     const loading = document.getElementById("loading");
     const invite = document.getElementById("invite");
